@@ -2,12 +2,23 @@ package com.prueba.evaluacion;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.opencsv.CSVParser;
+import com.opencsv.CSVParserBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+
+import entidades.Usuario;
 
 @SpringBootApplication
 public class EvaluacionApplication implements CommandLineRunner{
@@ -34,12 +45,17 @@ public class EvaluacionApplication implements CommandLineRunner{
 			inputURL = new URL(args[0]);
 			
 			BufferedReader contenidoReader = new BufferedReader(new InputStreamReader(inputURL.openStream()));
+									
+			CSVParser csvParser = new CSVParserBuilder().withSeparator(';').build();
 			
-			String linea;
+			CSVReader csvReader = new CSVReaderBuilder(contenidoReader).withCSVParser(csvParser).build();
 			
-			while ((linea = contenidoReader.readLine()) != null) {
+			for (String[] registro : csvReader.readAll()) {
+												
+				List<String> camposUsuario = Arrays.asList(registro);
 				
-				System.out.println(linea);
+				Usuario usuario = new Usuario(camposUsuario);
+				System.out.println(usuario);
 				
 			}
 			

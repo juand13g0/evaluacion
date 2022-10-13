@@ -1,5 +1,8 @@
 package entidades;
 
+import java.lang.reflect.Field;
+import java.util.List;
+
 public class Usuario {
 
 	private String nombre;
@@ -19,6 +22,24 @@ public class Usuario {
 		this.nif = nif;
 		this.fechaNacimiento = fechaNacimiento;
 		this.email = email;
+	}
+	
+	public Usuario(List<String> campos) throws Exception{
+		
+		if (campos.size() < Usuario.class.getDeclaredFields().length) {
+			throw new Exception("Sin campos suficientes");
+		}
+		
+		Field[] atributos = Usuario.class.getDeclaredFields();
+		
+		for (int i = 0; i < atributos.length; i++) {
+			
+			Field atributo = atributos[i];
+			
+			atributo.set(this, campos.get(i));
+			
+		}
+		
 	}
 
 	public String getNombre() {

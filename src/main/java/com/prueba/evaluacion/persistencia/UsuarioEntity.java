@@ -1,4 +1,4 @@
-package persistencia;
+package com.prueba.evaluacion.persistencia;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,7 +28,7 @@ public class UsuarioEntity {
 	@Column(length=50, nullable=false, unique=false)
 	private String email;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

@@ -1,4 +1,4 @@
-package entidades;
+package com.prueba.evaluacion.entidades;
 
 import java.lang.reflect.Field;
 import java.util.List;

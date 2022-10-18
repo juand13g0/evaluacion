@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozermapper.github.io/schema/bean-mapping"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozermapper.github.io/schema/bean-mapping http://dozermapper.github.io/schema/bean-mapping.xsd">
+    <mapping>
+        <class-a>com.prueba.evaluacion.entidades.Usuario</class-a>
+        <class-b>com.prueba.evaluacion.persistencia.UsuarioEntity</class-b>
+        <field>
+            <a>nombre</a>
+            <b>nombre</b>
+        </field>
+	    <field>
+            <a>apellidos</a>
+            <b>apellidos</b>
+        </field>
+        <field>
+            <a>nif</a>
+            <b>nif</b>
+        </field>
+        <field>
+            <a>fechaNacimiento</a>
+            <b>fechaNacimiento</b>
+        </field>
+        <field>
+            <a>email</a>
+            <b>email</b>
+        </field>
+    </mapping>
+</mappings>

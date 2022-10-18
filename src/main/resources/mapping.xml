@@ -5,7 +5,7 @@
     <mapping>
         <class-a>com.prueba.evaluacion.entidades.Usuario</class-a>
         <class-b>com.prueba.evaluacion.persistencia.UsuarioEntity</class-b>
-        <field>
+        <!-- <field>
             <a>nombre</a>
             <b>nombre</b>
         </field>
@@ -24,6 +24,6 @@
         <field>
             <a>email</a>
             <b>email</b>
-        </field>
+        </field> -->
     </mapping>
 </mappings>

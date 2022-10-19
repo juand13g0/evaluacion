@@ -68,7 +68,7 @@ public class EvaluacionApplication implements CommandLineRunner{
 			contenidoReader.close();
 			
 			int numero_registros = usuarioService.guardarUsuarios(listaUsuarios);
-			System.out.println(numero_registros);
+			System.out.println("Se han procesado: " + numero_registros + " filas");
 		}
 		
 		System.out.println(mensaje);

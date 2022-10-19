@@ -1,16 +1,16 @@
 package com.prueba.evaluacion.persistencia;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.github.dozermapper.core.Mapper;
 import com.prueba.evaluacion.entidades.Usuario;
 
-@Component("usuarioService")
+//@Component("usuarioService")
+@Service
 public class UsuarioService {
 
 	@Autowired

@@ -30,7 +30,7 @@ public class LectorDatosURLServiceImpl implements ILectorDatosService {
 	UsuarioService usuarioService;
 		
 	@Override
-	public Integer leerUsuarios(String url) {
+	public Integer leerUsuarios(String url) throws Exception {
 		
 		System.out.println("LectorDatosURLServiceImpl :: url=" + url);
 		
@@ -59,11 +59,14 @@ public class LectorDatosURLServiceImpl implements ILectorDatosService {
 			numero_registros = usuarioService.guardarUsuarios(listaUsuarios);
 			
 		} catch (IOException ioe) {
-			ioe.printStackTrace();
+			//ioe.printStackTrace();
+			throw ioe;
 		} catch (CsvException csve) {
-			csve.printStackTrace();
+			//csve.printStackTrace();
+			throw csve;
 		} catch (Exception e) {
-			e.printStackTrace();
+			//e.printStackTrace();
+			throw e;
 		}
 		
 		return numero_registros;

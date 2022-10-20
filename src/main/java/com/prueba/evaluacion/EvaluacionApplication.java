@@ -47,10 +47,16 @@ public class EvaluacionApplication implements CommandLineRunner{
 			
 			String url = args[0];
 			
-			if (url.contains(googleURL)) {
-				numeroRegistrosProcesados = servicioLectorGoogle.leerUsuarios(url);
-			} else {
-				numeroRegistrosProcesados = servicioLectorURL.leerUsuarios(url);
+			try {
+			
+				if (url.contains(googleURL)) {
+					numeroRegistrosProcesados = servicioLectorGoogle.leerUsuarios(url);
+				} else {
+					numeroRegistrosProcesados = servicioLectorURL.leerUsuarios(url);
+				}
+			
+			} catch(Exception e) {
+				System.err.println(causaExcepcion(e));
 			}
 			
 			System.out.println("Se han procesado: " + numeroRegistrosProcesados + " filas");
@@ -58,6 +64,17 @@ public class EvaluacionApplication implements CommandLineRunner{
 		
 		System.out.println(mensaje);
 				
+	}
+	
+	private String causaExcepcion(Exception e) {
+		
+		Exception excepcion = e;
+		
+		while (e instanceof Exception && e.getCause() != null && e.getCause() instanceof Exception) {
+			e = (Exception) e.getCause();
+		}
+		
+		return e.toString();
 	}
 
 }

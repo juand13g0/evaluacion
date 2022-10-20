@@ -6,6 +6,6 @@ import com.prueba.evaluacion.entidades.Usuario;
 
 public interface ILectorDatosService {
 
-	public Integer leerUsuarios(String url);
+	public Integer leerUsuarios(String url) throws Exception;
 	
 }

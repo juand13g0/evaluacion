@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.github.dozermapper.core.Mapper;
 import com.prueba.evaluacion.entidades.Usuario;
 
-//@Component("usuarioService")
 @Service
 public class UsuarioService {
 

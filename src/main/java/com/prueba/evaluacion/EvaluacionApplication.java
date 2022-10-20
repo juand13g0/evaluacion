@@ -21,10 +21,10 @@ public class EvaluacionApplication implements CommandLineRunner{
 	@Qualifier("URL")
 	ILectorDatosService servicioLectorURL;
 	
-	@Autowired
-	@Lazy
-	@Qualifier("Google")
-	ILectorDatosService servicioLectorGoogle;
+	//@Autowired
+	//@Lazy
+	//@Qualifier("Google")
+	//ILectorDatosService servicioLectorGoogle;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(EvaluacionApplication.class, args);
@@ -36,6 +36,7 @@ public class EvaluacionApplication implements CommandLineRunner{
 				
 		String mensaje = "final del programa";
 		String error = "no parametro url";
+		String servicioNoDisponible = "servicio de Google no disponible";
 		
 		String googleURL = "sheets.googleapis.com";
 		
@@ -50,7 +51,8 @@ public class EvaluacionApplication implements CommandLineRunner{
 			try {
 			
 				if (url.contains(googleURL)) {
-					numeroRegistrosProcesados = servicioLectorGoogle.leerUsuarios(url);
+					//numeroRegistrosProcesados = servicioLectorGoogle.leerUsuarios(url);
+					System.out.println(servicioNoDisponible);
 				} else {
 					numeroRegistrosProcesados = servicioLectorURL.leerUsuarios(url);
 				}
